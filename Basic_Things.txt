@@ -1,0 +1,61 @@
+# New APP added to Project
+When we create a new app in the project,
+There are fews things need to be done
+
+1. add a urls.py file for that app
+	under urls.py file
+
+	from django.urls import include, path
+	from . import views
+
+
+	urlpatterns = [
+	    path('', views.Home, name='Home'),
+	]
+	while to map this url to main project we need to map that as well as follows:
+		from django.contrib import admin
+		from django.urls import include, path
+
+
+		urlpatterns = [
+		    path('', include('PF.urls')),
+		    path('admin/', admin.site.urls),
+		]
+
+
+# Adding Templates for the APP:
+For adding templates to the project
+1. Create a folder in base directory
+2. GO to settings.py of the project and do the following changes:
+	TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],   -> Change
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+# For adding static files to the Project
+1. Create a folder in root directory
+2. Copy all the static files in that folder 
+3. Go to settings.py and do the following chnages :
+	STATIC_URL = '/static/'
+	STATICFILES_DIRS = [
+	    os.path.join(BASE_DIR, 'static')
+	]
+
+	STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+4. Once the above chnages have been made
+	-> run - python manage.py collectstatic
+5. Once all the static files have been added, all the paths in html needs to be changed in django understandable code
+	-> load static -> {%load static%}
+	-> add {% static 'FILE LOCATION' %}
