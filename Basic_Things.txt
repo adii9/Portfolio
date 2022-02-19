@@ -1,4 +1,5 @@
 # New APP added to Project
+---------------------------
 When we create a new app in the project,
 There are fews things need to be done
 
@@ -23,7 +24,8 @@ There are fews things need to be done
 		]
 
 
-# Adding Templates for the APP:
+# Adding Templates for the APP
+---------------------------------
 For adding templates to the project
 1. Create a folder in base directory
 2. GO to settings.py of the project and do the following changes:
@@ -45,6 +47,7 @@ For adding templates to the project
 
 
 # For adding static files to the Project
+----------------------------------------
 1. Create a folder in root directory
 2. Copy all the static files in that folder 
 3. Go to settings.py and do the following chnages :
@@ -59,3 +62,16 @@ For adding templates to the project
 5. Once all the static files have been added, all the paths in html needs to be changed in django understandable code
 	-> load static -> {%load static%}
 	-> add {% static 'FILE LOCATION' %}
+
+
+#Connecting Postgress with Django app
+--------------------------------------
+in Settings.py make the followinmg changes
+in DATABSE
+	1. Specify the name of data base being used
+	2. Name of the table under the database
+	3. USer of the database 
+	4. PAssword of the database
+	5. HOst - local host (or Server If any)
+
+	Since Postgres and Djnago are two different technolofies we need something to make them worm together, the name of the program is - psycopg2 - Its a connector
