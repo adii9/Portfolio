@@ -10,9 +10,47 @@
         
         <!--==================== SWIPER CSS ====================-->
         <link rel="stylesheet" href="">
-        
+        <style>
+            @import @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+            H4body{
+              padding: 40px;
+              background-color: #121212;
+            }
+
+            H4 {
+              border-right: solid 3px rgba(0,255,0,.75);
+              white-space: nowrap;
+              overflow: hidden;
+              font-family: 'Source Code Pro', monospace;
+              font-size: 28px;
+              color: rgba(255,255,255,.70);
+            }
+
+            /* Animation */
+            H4 {
+              animation: animated-text 2s steps(29) 1s 1 normal both,
+                         animated-cursor 450ms steps(29) infinite;
+            }
+
+            /* text animation */
+
+            @keyframes animated-text{
+              from{width: 0;}
+              to{width: 260px;}
+            }
+
+            /* cursor animations */
+
+            @keyframes animated-cursor{
+              from{border-right-color: rgba(0,255,0,.75);}
+              to{border-right-color: transparent;}
+            }
+        </style>
         <!--==================== CSS ====================-->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
 
         <title>Aditya's Portfolio</title>
     </head>
@@ -102,7 +140,7 @@
 
                         <div class="home__data">
                             <h1 class="home__title">Hi, I'am Aditya</h1>
-                            <h3 class="home__subtitle">Software Developer</h3>
+                            <H4>Django Developer</H4>
                             <p class="home__description">Experience in Windows Automation and
                                 writing quality automation scripts.</p>
                             <a href="#contact" class="button button__flex">
